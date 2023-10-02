@@ -1,0 +1,22 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}
+    <h2>Acerca de mi</h2>
+{% endblock title %}
+{% block content %}
+   
+    <p>
+        Sebastian Carrizo
+            
+    </p>
+    <p>
+        Este es mi primer curso en el mundo de la programacion
+            
+    </p>
+
+
+    <p>
+        <a class="btn btn-secondary justify-content-around"
+           href="{% url 'home:index' %}">Ir al inicio</a>
+    </p>
+{% endblock content %}

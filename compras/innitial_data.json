@@ -1,0 +1,30 @@
+[
+    {
+        "model": "compras.categoria",
+        "pk": 1,
+        "fields": {
+            "categoria": "Barras"
+        }
+    },
+    {
+        "model": "compras.categoria",
+        "pk": 2,
+        "fields": {
+            "categoria": "Peso libre"
+        }
+    },
+    {
+        "model": "compras.categoria",
+        "pk": 3,
+        "fields": {
+            "categoria": "Kettlebell"
+        }
+    },
+    {
+        "model": "compras.categoria",
+        "pk": 4,
+        "fields": {
+            "categoria": "Varios"
+        }
+    }    
+]

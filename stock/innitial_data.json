@@ -1,0 +1,30 @@
+[
+    {
+        "model": "stock.ubicacion",
+        "pk": 1,
+        "fields": {
+            "ubicacion": "Rack1"
+        }
+    },
+    {
+        "model": "stock.ubicacion",
+        "pk": 2,
+        "fields": {
+            "ubicacion": "Rack2"
+        }
+    },
+    {
+        "model": "stock.ubicacion",
+        "pk": 3,
+        "fields": {
+            "ubicacion": "Pasillo1"
+        }
+    },
+       {
+        "model": "stock.ubicacion",
+        "pk": 5,
+        "fields": {
+            "ubicacion": "Pasillo2"
+        }
+    }
+]

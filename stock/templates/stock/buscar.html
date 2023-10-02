@@ -1,0 +1,24 @@
+{% extends "home/base.html" %}
+{% block title %}
+    <title>Buscar Stock por ubicacion</title>
+{% endblock title %}
+{% block content %}
+    <h1>Buscar Stock por ubicacion</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+    <h2>Resultados:</h2>
+    <ul>
+        {% for stock in resultados %}
+            <li>{{ stock.articulo }} {{ stock.cantidad }}</li>
+        {% empty %}
+            <li>No se encontraron resultados.</li>
+        {% endfor %}
+    </ul>
+    <p>
+        <a class="btn btn-secondary justify-content-around mt-4"
+           href="{% url 'stock:index' %}">Ir al inicio</a>
+    </p>
+{% endblock content %}

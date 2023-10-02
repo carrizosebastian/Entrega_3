@@ -1,0 +1,52 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}
+    <h2>Stock</h2>
+{% endblock title %}
+{% block content %}
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0"
+                 src=" {% static 'home/img/stocks.jpeg' %}" />
+        </div>
+        <div class="col-lg-5">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Articulo</th>
+                        <th>Precio</th>
+                        <th>Peso</th>
+                        <th>Cantidad</th>
+                        <th>Ubicacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in stock %}
+                        <tr>
+                            <td>{{ stock.articulo }}</td>
+                            <td>{{ stock.precio }}</td>
+                            <td>{{ stock.peso }}</td>
+                            <td>{{ stock.cantidad }}</td>
+                            <td>{{ stock.ubicacion_id }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="3">No se encontraron resultados.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="btn-group d-flex justify-content-between mt-5">
+            <p>
+                <a class="btn btn-secondary" href="{% url 'stock:buscar' %}">Buscar por ubicacion</a>
+            </p>
+            <p>
+                <a class="btn btn-secondary" href="{% url 'stock:crear' %}">Agregar articulo</a>
+            </p>
+            <p>
+                <a class="btn btn-secondary" href="{% url 'home:index' %}">Ir al inicio</a>
+            </p>
+        </div>
+    </div>
+{% endblock content %}

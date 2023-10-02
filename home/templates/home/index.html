@@ -1,0 +1,31 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}
+    <!--h2>Index Home</h2 -->
+{% endblock title %}
+{% block content %}
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0 mt-5"
+                 src=" {% static 'home/img/gym.webp' %}" />
+        </div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light"> Bienvenido</h1>
+            <p>Podes encontrar todo lo necesario para tu gimnasio.</p>
+        </div>
+    </div>
+    <div class="btn-group d-flex justify-content-around mt-5">
+        <p>
+            <a class="btn btn-secondary" href="{% url 'cliente:index' %}">Clientes</a>
+        </p>
+        <p>
+            <a class="btn btn-secondary" href="{% url 'compras:index' %}">Compras</a>
+        </p>
+        <p>
+            <a class="btn btn-secondary" href="{% url 'stock:index' %}">Stock</a>
+        </p>
+        <p>
+            <a class="btn btn-secondary" href="{% url 'home:about' %}">About</a>
+        </p>
+    </div>
+{% endblock content %}
