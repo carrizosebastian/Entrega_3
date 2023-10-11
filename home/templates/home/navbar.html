@@ -13,9 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active"
-                       aria-current="page"
-                       href="{% url "home:index" %}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url "home:index" %}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url "cliente:index" %}">Clientes</a>
@@ -27,7 +25,17 @@
                     <a class="nav-link" href="{% url "stock:index" %}">Stock</a>
                 </li>
                 <li class="nav-item">
+                    {% if user.is_staff %}
+                        <a class="nav-link" href="{% url "admin:index" %}">Admin</a>
+                    {% else %}
+                        <a class="nav-link" href="{% url "home:login" %}">Login</a>
+                    {% endif %}
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{% url "home:about" %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "home:logout" %}">Logout</a>
                 </li>
             </ul>
         </div>

@@ -1,0 +1,35 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Vista en detalle
+{% endblock title %}
+{% block content %}
+    <ul>
+        <li>
+            <strong>ID:</strong> {{ object.id }}
+            <li>
+                <strong>Articulo:</strong> {{ object.articulo }}
+                <li>
+                    <strong>Precio:</strong> {{ object.precio }}
+                    <li>
+                        <strong>Peso:</strong> {{ object.peso }}
+                        <li>
+                            <strong>Ubicacion:</strong> {{ object.ubicacion_id }}
+                            <li>
+                                <strong>Canrtidad:</strong> {{ object.cantidad }}
+                                {% if object.imagen %}
+                                    <li>
+                                        <strong>Imagen:</strong>
+                                        <br>
+                                        <img src="{{ object.imagen.url }}"
+                                             alt="{{ object.articulo }}'s Imagen"
+                                             style="max-width: 300px">
+                                    </li>
+                                {% endif %}
+                                <li>
+                                    <strong>Descripcion:</strong> {{ object.descripcion }}
+                                </ul>
+                                <p>
+                                    <a class="btn btn-secondary justify-content-around mt-4"
+                                       href="{% url 'stock:index' %}">Ir al inicio</a>
+                                </p>
+                            {% endblock content %}

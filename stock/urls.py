@@ -23,6 +23,11 @@ app_name = "stock"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("crear/", views.crear, name="crear"),
+    path("crear/", views.StockCreate.as_view(), name="crear"),
     path("buscar/", views.buscar, name="buscar"),
+    path("delete/<int:pk>", views.StockDelete.as_view(), name="stock_delete"),
+    path("update/<int:pk>", views.StockUpdate.as_view(), name="stock_update"),
+    path("detail/<int:pk>", views.StockDetail.as_view(), name="stock_detail"),
+    
 ]
+

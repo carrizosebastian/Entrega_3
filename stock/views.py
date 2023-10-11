@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic.edit import DeleteView, UpdateView
+from django.views.generic import DetailView, CreateView
 
-#from . import models, forms
+from . import models, forms
 from .models import Stock, Ubicacion
 from .forms import *
 
@@ -11,16 +13,11 @@ def index(request):
 
     return render(request, "stock/index.html", {"stock": stock})
 
-def crear(request):
-    if request.method == "POST":
-        form = StockForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("stock:index")
-    else:
-        form = StockForm()
-    return render(request, "stock/crear.html", {"form": form})
 
+class StockCreate(CreateView):
+    model = models.Stock
+    form_class = StockForm
+    success_url = reverse_lazy("stock:index")
 
 def buscar(request):
     resultados = []
@@ -39,3 +36,16 @@ def buscar(request):
         form = BuscarPorUbicacion()
 
     return render(request, 'stock/buscar.html', {'form': form, 'resultados': resultados})
+
+class StockUpdate(UpdateView):
+    model = models.Stock
+    form_class = StockForm
+    success_url = reverse_lazy("stock:index")
+
+
+class StockDelete(DeleteView):
+    model = models.Stock
+    success_url = reverse_lazy("stock:index")
+
+class StockDetail(DetailView):
+    model = models.Stock

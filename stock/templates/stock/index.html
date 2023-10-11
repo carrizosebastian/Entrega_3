@@ -18,6 +18,7 @@
                         <th>Peso</th>
                         <th>Cantidad</th>
                         <th>Ubicacion</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,18 @@
                             <td>{{ stock.peso }}</td>
                             <td>{{ stock.cantidad }}</td>
                             <td>{{ stock.ubicacion_id }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="{% url 'stock:stock_detail' stock.id %}"
+                                       class="btn btn-secondary btn-sm">Detalle</a>
+                                    {% if user.is_staff %}
+                                        <a href="{% url 'stock:stock_update' stock.id %}"
+                                           class="btn btn-secondary btn-sm">Actualizar</a>
+                                        <a href="{% url 'stock:stock_delete' stock.id %}"
+                                           class="btn btn-danger btn-sm">Eliminar</a>
+                                    {% endif %}
+                                </div>
+                            </td>
                         </tr>
                     {% empty %}
                         <tr>

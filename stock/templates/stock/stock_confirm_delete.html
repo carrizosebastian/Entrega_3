@@ -1,0 +1,17 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    <h2>Eliminar Articulo</h2>
+{% endblock title %}
+{% block content %}
+    <p class="fs-5 fst-italic">¿Está seguro de eliminar el articulo {{ object.articulo }} ?</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row mt-4">
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+        </div>
+    </form>
+    <p>
+        <a class="btn btn-secondary justify-content-around mt-4"
+           href="{% url 'stock:index' %}">Ir al inicio</a>
+    </p>
+{% endblock content %}
